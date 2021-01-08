@@ -449,7 +449,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
 
     search.addEventListener('input', function(){
         let valueInput = search.value;
-        title.textContent = 'Search';
+        createTitle(title, secondTitle, 'Search', '');
         boxBanner.insertAdjacentElement('beforeend', createSortBox(boxBanner));
         title.classList.add('title-affect');
         boxBanner.style.height = '350px';
