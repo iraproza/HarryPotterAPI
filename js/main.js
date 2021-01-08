@@ -66,32 +66,33 @@ class Info{
         boxLike.classList.add('likes-box');
         let likeBtn = document.createElement('button');
         likeBtn.classList.add('like')
+        likeBtn.setAttribute('title', 'like')
         let likeSpan = document.createElement('span');
         likeSpan.textContent = objLike.like;
         let dislikeBtn = document.createElement('button');
         dislikeBtn.classList.add('dislike')
+        dislikeBtn.setAttribute('title', 'dislike')
         let dislikeSpan = document.createElement('span');
         dislikeSpan.textContent = objLike.like;
         let iconDislike = document.createElement('i');
         iconDislike.setAttribute('class', 'fas fa-heart-broken');
-        dislikeBtn.insertAdjacentElement('afterbegin', iconDislike);
         let iconLike = document.createElement('i');
         iconLike.setAttribute('class', 'fas fa-heart');
-        likeBtn.insertAdjacentElement('afterbegin', iconLike);
         likeBtn.insertAdjacentElement('afterbegin', likeSpan);
         dislikeBtn.insertAdjacentElement('afterbegin', dislikeSpan);
-
+        likeBtn.insertAdjacentElement('afterbegin', iconLike);
+        dislikeBtn.insertAdjacentElement('afterbegin', iconDislike);
         boxLike.insertAdjacentElement('afterbegin',dislikeBtn);
         boxLike.insertAdjacentElement('afterbegin',likeBtn);
 
-        likeBtn.addEventListener('click', function(){
+        iconLike.addEventListener('click', function(){
             let likeInfo = JSON.parse(localStorage.getItem(name)) || {like: 0, dislike: 0};
             likeInfo.like +=1;
             likeSpan.textContent = likeInfo.like;
             localStorage.setItem(name, JSON.stringify(likeInfo))
         })
 
-        dislikeBtn.addEventListener('click', function(){
+        iconDislike.addEventListener('click', function(){
             let likeInfo = JSON.parse(localStorage.getItem(name)) || {like: 0, dislike: 0};
             likeInfo.dislike +=1;
             dislikeSpan.textContent = likeInfo.dislike;
@@ -121,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
     boxBanner.classList.add('banner')
 
     // Menu
-    let categories = ['All', 'Student', 'Staff', 'House', 'Gallery'];
+    let categories = ['All', 'Student', 'Staff', 'House', 'Gallery', 'Movies'];
     let nav = document.createElement('div');
     nav.classList.add('nav')
     let menu = document.createElement('ul');
@@ -301,6 +302,16 @@ document.addEventListener('DOMContentLoaded', async () =>{
             }
             case '4': {
                 title.textContent = categories[4];
+                secondTitle.textContent = '';
+                document.querySelector('.sort-box').style.display = 'none';
+                if(document.querySelector('.container-persons')){
+                    document.body.removeChild(document.querySelector('.container-persons'));
+                }
+                createGallery(boxBanner);
+                break;
+            }
+            case '5': {
+                title.textContent = categories[5];
                 secondTitle.textContent = '';
                 document.querySelector('.sort-box').style.display = 'none';
                 if(document.querySelector('.container-persons')){

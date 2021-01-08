@@ -389,6 +389,8 @@ small{
     font-size: 16px;
 }
 
+/* Like-box*/
+
 .likes-box{
     display: flex;
     justify-content: space-between;
@@ -396,6 +398,22 @@ small{
     color: #ffc1075c;
     transition: .4s;
 }
+
+.likes-box button{
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 30px;
+    font-family: HLight;
+    font-size: 23px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.likes-box i{
+    padding-right: 10px;
+}
+
 
 .likes-box i:hover{
     color: #ffc107;
