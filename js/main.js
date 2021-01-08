@@ -58,9 +58,45 @@ class Info{
             olInfo.insertAdjacentElement('beforeend', liWand);
         }
         let boxImg = document.createElement('div');
+        boxImg.classList.add('img-box');
+
+        let objLike = JSON.parse(localStorage.getItem(name)) || {like:0, dislike:0};
+
         let boxLike = document.createElement('div');
-        boxLike.classList.add('likes-box')
-        boxLike.innerHTML = `<i class="fas fa-heart"></i> <i class="fas fa-heart-broken"></i>`;
+        boxLike.classList.add('likes-box');
+        let likeBtn = document.createElement('button');
+        likeBtn.classList.add('like')
+        let likeSpan = document.createElement('span');
+        likeSpan.textContent = objLike.like;
+        let dislikeBtn = document.createElement('button');
+        dislikeBtn.classList.add('dislike')
+        let dislikeSpan = document.createElement('span');
+        dislikeSpan.textContent = objLike.like;
+        let iconDislike = document.createElement('i');
+        iconDislike.setAttribute('class', 'fas fa-heart-broken');
+        dislikeBtn.insertAdjacentElement('afterbegin', iconDislike);
+        let iconLike = document.createElement('i');
+        iconLike.setAttribute('class', 'fas fa-heart');
+        likeBtn.insertAdjacentElement('afterbegin', iconLike);
+        likeBtn.insertAdjacentElement('afterbegin', likeSpan);
+        dislikeBtn.insertAdjacentElement('afterbegin', dislikeSpan);
+
+        boxLike.insertAdjacentElement('afterbegin',dislikeBtn);
+        boxLike.insertAdjacentElement('afterbegin',likeBtn);
+
+        likeBtn.addEventListener('click', function(){
+            let likeInfo = JSON.parse(localStorage.getItem(name)) || {like: 0, dislike: 0};
+            likeInfo.like +=1;
+            likeSpan.textContent = likeInfo.like;
+            localStorage.setItem(name, JSON.stringify(likeInfo))
+        })
+
+        dislikeBtn.addEventListener('click', function(){
+            let likeInfo = JSON.parse(localStorage.getItem(name)) || {like: 0, dislike: 0};
+            likeInfo.dislike +=1;
+            dislikeSpan.textContent = likeInfo.dislike;
+            localStorage.setItem(name, JSON.stringify(likeInfo))
+        })
 
         let imgPerson = document.createElement('img');
         imgPerson.setAttribute('src', `${imgUrl}`);
@@ -158,7 +194,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
 
     let arrSort = [];
 
-    console.log(charactersInfo)
+    console.log(charactersInfo);
 
     allMenu.addEventListener('click', function(event){
         let numberMenu = event.target.getAttribute('data-index');

@@ -164,6 +164,7 @@ body{
     font-size: 80px;
     color: #222b30;
     font-family: HLight;
+    font-weight: 500;
 }
 
 .title span:last-child{
@@ -254,6 +255,9 @@ body{
 
 .block-info-person img{
     width: 280px;
+}
+
+.img-box{
     padding-right: 20px;
 }
 
@@ -307,12 +311,12 @@ body{
     height: 35px;
     font-size: 20px;
     outline: none;
+    font-family: HLight;
 }
 
 .sort-abc{
     margin-right: 40px;
 }
-
 
 /* Gallery */
 
@@ -379,3 +383,29 @@ body{
     transition: 0.3s;
     transform: scale(1.2);
 }
+
+small{
+    font-family: HLight;
+    font-size: 16px;
+}
+
+.likes-box{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    color: #ffc1075c;
+    transition: .4s;
+}
+
+.likes-box i:hover{
+    color: #ffc107;
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.likes-box i:active{
+    color: #ffc10785;
+    transform: scale(.9);
+    transition: .3s;
+}
+
