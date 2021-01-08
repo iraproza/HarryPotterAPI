@@ -15,11 +15,15 @@
 }
 
 body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 0 auto;
     background-color: #3f3a37;
     min-height: 100vh;
 }
 
+/*Banner block */
 .banner{
     font-family: HBold;
     padding: 20px 100px;
@@ -28,7 +32,6 @@ body{
     background-position: center;
     height: 100vh;
     display: flex;
-    justify-content:space-between;
     align-items: center;
     flex-direction: column;
     transition: .5s;
@@ -39,6 +42,7 @@ body{
 .banner-top{
     transition: .5s;
 }
+
 .nav{
     width: 90%;
     z-index: 5;
@@ -52,7 +56,6 @@ body{
 .menu{
     list-style: none;
     display: flex;
-    justify-content: flex-end;
     font-size: 25px;
     line-height: 30px;
     margin: 0px 0px 0px 10px;
@@ -111,6 +114,11 @@ body{
     background-color: #f8ecec;
 }
 
+.info-search{
+    font-size: 35px;
+    font-family: HLight;
+}
+
 .house-menu,
 .student-menu{
     display: none;
@@ -152,7 +160,6 @@ body{
     height: 100%;
     transition: linear .5s;
 }
-
 
 .menu-categories:hover .house-menu,
 .menu-categories:hover .student-menu{
@@ -212,9 +219,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 50%;
     margin-top: 20px;
-    padding: 10px 40px;
+    padding: 20px 40px;
     border-radius: 8px;
 }
 
@@ -227,7 +233,7 @@ body{
 }
 
 .block-info ol{
-    width: 300px;
+    width: 55%;
     list-style-type: none;
     padding: 20px 30px;
     line-height: 40px;
@@ -258,6 +264,13 @@ body{
 .block-info img{
     width: 280px;
 }
+.container-persons .block-info{
+    width: 46%;
+}
+
+.container-persons .img-box img{
+    padding-bottom: 15px;
+}
 
 .img-box{
     padding-right: 20px;
@@ -271,6 +284,7 @@ body{
     padding-top: 10px;
     padding-bottom: 30px;
 }
+
 .social{
     display: flex;
     justify-content: space-around;
@@ -293,13 +307,10 @@ body{
     display: none;
     position: absolute;
     font-family: HLight;
-    text-align: center;
     color: #000000;
     font-size: 24px;
     bottom: -17%;
-    left: 28%;
 }
-
 
 .sort-abc button,
 .sort-birth button{
@@ -341,6 +352,7 @@ body{
     z-index: 2;
     overflow: hidden;
 }
+
 .big-img img{
     position: absolute;
     width: 100%;
@@ -416,7 +428,6 @@ small{
     padding-right: 10px;
 }
 
-
 .likes-box i:hover{
     color: #ffc107;
     transform: scale(1.1);
@@ -429,10 +440,7 @@ small{
     transition: .3s;
 }
 
-
 .container-movies{
-    margin-left: 100px;
-    margin-right: 100px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;

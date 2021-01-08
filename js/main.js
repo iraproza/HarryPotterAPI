@@ -61,7 +61,6 @@ class Info{
         boxImg.classList.add('img-box');
 
         let objLike = JSON.parse(localStorage.getItem(name)) || {like:0, dislike:0};
-
         let boxLike = document.createElement('div');
         boxLike.classList.add('likes-box');
         let likeBtn = document.createElement('button');
@@ -188,7 +187,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
     title.insertAdjacentElement('afterend', secondTitle);
 
     let movies = [
-        // 1
         {
             link: 'https://uakino.club/filmi/genre_adventure/159-garr-potter-flosofskiy-kamn.html',
             movieName:"Harry Potter and the Philosopher's Stone", 
@@ -199,7 +197,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
             gross: "$317.58M",
             src: '../img/poster1.jpg'
         },
-        //2
         {
             link: 'https://uakino.club/filmi/genre_adventure/214-garr-potter-tayemna-kmnata.html',
             movieName:"Harry Potter and the Chamber of Secrets", 
@@ -210,7 +207,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
             gross: "$261.99M",
             src: '../img/poster2.jpg'
         },
-        //3
         {
             link: 'https://uakino.club/filmi/genre_adventure/213-garr-potter-vyazen-azkabanu.html',
             movieName:"Harry Potter and the Prisoner of Azkaban", 
@@ -221,7 +217,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
             gross: "$249.36M",
             src: '../img/poster3.jpg'
         },
-        //4
             {
             link: 'https://uakino.club/filmi/genre_adventure/209-garr-potter-kelih-vognyu.html',
             movieName:"Harry Potter and the Goblet of Fire", 
@@ -232,7 +227,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
             gross: "$290.01M",
             src: '../img/poster4.jpg'
         },
-        //5
         {
             link: 'https://uakino.club/filmi/genre_adventure/281-garr-potter-ta-orden-fenksa.html',
             movieName:"Harry Potter and the Order of the Phoenix", 
@@ -243,7 +237,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
             gross: "$292.00M",
             src: '../img/poster5.jpg'
         },
-        //6
         {
             link: 'https://uakino.club/filmi/genre_adventure/234-garr-potter-napvkrovniy-princ.html',
             movieName:"Harry Potter and the Half-Blood Prince", 
@@ -254,7 +247,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
             gross: "$301.96M",
             src: '../img/poster6.jpg'
         },
-        //7
         {
             link: 'https://uakino.club/filmi/genre_adventure/269-garr-potter-ta-smerteln-relkvyi-chastina-persha.html',
             movieName:"Harry Potter and the Deathly Hallows – Part 1", 
@@ -265,7 +257,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
             gross: "$295.98M",
             src: '../img/poster7.jpg'
         },
-         //8
          {
             link: 'https://uakino.club/filmi/genre_adventure/68-garr-potter-ta-smerteln-relkvyi-chastina-druga.html',
             movieName:"Harry Potter and the Deathly Hallows – Part 2", 
@@ -295,22 +286,19 @@ document.addEventListener('DOMContentLoaded', async () =>{
 
         switch(numberMenu){
             case '0': {
-                title.textContent = `${categories[0]} characters`;
-                secondTitle.textContent = '';
+                createTitle(title, secondTitle,`${categories[0]} characters`, '');
                 insertInfo(charactersInfo,boxBanner);
                 arrSort = charactersInfo;
                 break;
             }
             case '1': {
-                title.textContent = categories[1];
-                secondTitle.textContent = '';
+                createTitle(title, secondTitle,categories[1], '');
                 insertInfo(studentsInfo,boxBanner);
                 arrSort = studentsInfo;
                 break;
             }
             case '1.0':{
-                title.textContent = categories[1];
-                secondTitle.textContent = 'Male';
+                createTitle(title, secondTitle,categories[1], studentGender[0]);
                 let arr = [];
                 for(let i = 0; i < studentsInfo.length; i++){
                     if(studentsInfo[i].gender == 'male'){
@@ -322,8 +310,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 break;
             }
             case '1.1':{
-                title.textContent = categories[1];
-                secondTitle.textContent =  'Female';
+                createTitle(title, secondTitle, categories[1], studentGender[1]);
                 let arr = [];
                 for(let i = 0; i < studentsInfo.length; i++){
                     if(studentsInfo[i].gender == 'female'){
@@ -335,22 +322,19 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 break;
             }
             case '2': {
-                title.textContent = categories[2];
-                secondTitle.textContent = '';
+                createTitle(title, secondTitle, categories[2], '');
                 insertInfo(staffInfo,boxBanner);
                 arrSort = staffInfo;
                 break;
             } 
             case '3': {
-                title.textContent = categories[3];
-                secondTitle.textContent = '';
+                createTitle(title, secondTitle, categories[3], '');
                 insertInfo(charactersInfo,boxBanner);
                 arrSort = charactersInfo;
                 break;
             }
             case '3.0': {
-                title.textContent = categories[3];
-                secondTitle.textContent = 'Gryffindor';
+                createTitle(title, secondTitle, categories[3], houseName[0]);
                 let arr = [];
                 for(let i = 0; i < charactersInfo.length; i++){
                     if(charactersInfo[i].house == 'Gryffindor'){
@@ -362,8 +346,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 break;
             }
             case '3.1': {
-                title.textContent = categories[3];
-                secondTitle.textContent = 'Slytherin';
+                createTitle(title, secondTitle, categories[3], houseName[1]);
                 let arr = [];
                 for(let i = 0; i < charactersInfo.length; i++){
                     if(charactersInfo[i].house == 'Slytherin'){
@@ -375,8 +358,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 break;
             }
             case '3.2': {
-                title.textContent = categories[3];
-                secondTitle.textContent = 'Ravenclaw';
+                createTitle(title, secondTitle, categories[3], houseName[2]);
                 let arr = [];
                 for(let i = 0; i < charactersInfo.length; i++){
                     if(charactersInfo[i].house == 'Ravenclaw'){
@@ -388,15 +370,13 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 break;
             }
             case '4': {
-                title.textContent = categories[4];
-                secondTitle.textContent = '';
+                createTitle(title, secondTitle, categories[4], '');
                 document.querySelector('.sort-box').style.display = 'none';
                 createGallery(boxBanner);
                 break;
             }
             case '5': {
-                title.textContent = categories[5];
-                secondTitle.textContent = '';
+                createTitle(title, secondTitle, categories[5], '');
                 document.querySelector('.sort-box').style.display = 'none';
                 let moviesBox = createContainer('.container-persons', '.container-gallery', 'container-movies');
                 for(let i = 0; i<movies.length; i++){
@@ -467,6 +447,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
     search.addEventListener('input', function(){
         let valueInput = search.value;
         title.textContent = 'Search';
+        boxBanner.insertAdjacentElement('beforeend', createSortBox(boxBanner));
         title.classList.add('title-affect');
         boxBanner.style.height = '350px';
         let arrSearch = [];
@@ -475,24 +456,22 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 arrSearch.push(charactersInfo[i])
             }
         }
-        if(arrSearch != []){
+        if(arrSearch != 0){
             insertInfo(arrSearch, boxBanner);
          }
-        if(arrSearch == []){
-            console.log('jf')
+         if(arrSearch.length == 0){
            let notFound = document.createElement('h2')
-           notFound.textContent = `Sorry, but ${search.value} the character is not found`;
+           notFound.classList.add('info-search')
+           notFound.textContent = `Sorry, but '${search.value}' the character is not found`;
            let container = createContainer('container-gallery', '.container-movies', 'container-persons');
-            container.insertAdjacentElement('beforeend', notFound)
+           container.insertAdjacentElement('beforeend', notFound)
+           boxBanner.insertAdjacentElement('afterend', container)
         }
     })
-
     search.addEventListener('blur', function(){
         search.value= '';
     })
-
     boxBanner.insertAdjacentElement('afterend', createFooter());
-    
 })
 
 function createContainer(classRemove1, classRemove2, classCreate){
@@ -632,6 +611,11 @@ function createLiInfo(label, value, tag){
     tag.insertAdjacentElement('beforeend', li);
 }
 
+function createTitle(title, secondTitle,categories, content){
+    title.textContent = categories;
+    secondTitle.textContent = content;
+}
+
 function createMovies(moviesBox, movies){
     let movieInfo = document.createElement('a');
     movieInfo.classList.add('block-info')
@@ -673,7 +657,7 @@ function createFooter(){
     let classIcon = ['fab fa-youtube-square', 'fab fa-instagram-square', 'fab fa-twitter-square', 'fab fa-facebook-square']
 
     let footerSmall = document.createElement('small');
-    footerSmall.textContent = '©2020 Fictional universe of Harry Potter. All Rights Reserved.';
+    footerSmall.textContent = '©2021 Fictional universe of Harry Potter. All Rights Reserved.';
 
     for(let i = 0; i<socialArr.length; i++){
         let link = document.createElement('a');
@@ -688,7 +672,6 @@ function createFooter(){
     footerBox.insertAdjacentElement('beforeend', footerSmall);
     return footerBox;
 }
-
 
 function dateSplit(a,b){
     let newDateArr1 = a.dateOfBirth.split('-');
