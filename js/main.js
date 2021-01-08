@@ -26,7 +26,7 @@ class Info{
 
     print(){
         let boxInfo = document.createElement('div');
-        boxInfo.classList.add('block-info-person')
+        boxInfo.classList.add('block-info')
 
         let olInfo = document.createElement('ol');
         olInfo.classList.add('listInfo');
@@ -172,9 +172,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
     }
     document.querySelector('.banner li:nth-child(4)').insertAdjacentElement('beforeend', houseMenu)
 
-    let gallery = document.querySelector('.banner li:nth-child(5)');
-    gallery.setAttribute('data-index', `4`);
-
     let titleBox = document.createElement('div');
     titleBox.classList.add('title-box');
     titleBox.innerHTML = '<h1><span>Fictional universe of</span><span>Harry Potter</span></h1>';
@@ -186,10 +183,100 @@ document.addEventListener('DOMContentLoaded', async () =>{
 
     let title = document.querySelector('h1');
     title.classList.add('title');
-
     let secondTitle = document.createElement('h2');
     secondTitle.classList.add('second-title');
     title.insertAdjacentElement('afterend', secondTitle);
+
+    let movies = [
+        // 1
+        {
+            link: 'https://uakino.club/filmi/genre_adventure/159-garr-potter-flosofskiy-kamn.html',
+            movieName:"Harry Potter and the Philosopher's Stone", 
+            year:"2001",
+            Director:"Chris Columbus", 
+            duration:"152 min", 
+            description: "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world", 
+            gross: "$317.58M",
+            src: '../img/poster1.jpg'
+        },
+        //2
+        {
+            link: 'https://uakino.club/filmi/genre_adventure/214-garr-potter-tayemna-kmnata.html',
+            movieName:"Harry Potter and the Chamber of Secrets", 
+            year:"2002",
+            Director:"Chris Columbus", 
+            duration:"161 min", 
+            description: "An ancient prophecy seems to be coming true when a mysterious presence begins stalking the corridors of a school of magic and leaving its victims paralyzed.", 
+            gross: "$261.99M",
+            src: '../img/poster2.jpg'
+        },
+        //3
+        {
+            link: 'https://uakino.club/filmi/genre_adventure/213-garr-potter-vyazen-azkabanu.html',
+            movieName:"Harry Potter and the Prisoner of Azkaban", 
+            year:"2004",
+            Director:"Alfonso Cuarón", 
+            duration:"142 min", 
+            description: "Harry Potter, Ron and Hermione return to Hogwarts School of Witchcraft and Wizardry for their third year of study, where they delve into the mystery surrounding an escaped prisoner who poses a dangerous threat to the young wizard.", 
+            gross: "$249.36M",
+            src: '../img/poster3.jpg'
+        },
+        //4
+            {
+            link: 'https://uakino.club/filmi/genre_adventure/209-garr-potter-kelih-vognyu.html',
+            movieName:"Harry Potter and the Goblet of Fire", 
+            year:"2005",
+            Director:"Mike Newell", 
+            duration:"157 min", 
+            description: "Harry Potter finds himself competing in a hazardous tournament between rival schools of magic, but he is distracted by recurring nightmares.", 
+            gross: "$290.01M",
+            src: '../img/poster4.jpg'
+        },
+        //5
+        {
+            link: 'https://uakino.club/filmi/genre_adventure/281-garr-potter-ta-orden-fenksa.html',
+            movieName:"Harry Potter and the Order of the Phoenix", 
+            year:"2007",
+            Director:"David Yates", 
+            duration:"138 min", 
+            description: "With their warning about Lord Voldemort's return scoffed at, Harry and Dumbledore are targeted by the Wizard authorities as an authoritarian bureaucrat slowly seizes power at Hogwarts.", 
+            gross: "$292.00M",
+            src: '../img/poster5.jpg'
+        },
+        //6
+        {
+            link: 'https://uakino.club/filmi/genre_adventure/234-garr-potter-napvkrovniy-princ.html',
+            movieName:"Harry Potter and the Half-Blood Prince", 
+            year:"2009",
+            Director:"David Yates", 
+            duration:"153 min", 
+            description: "As Harry Potter begins his sixth year at Hogwarts, he discovers an old book marked as 'the property of the Half-Blood Prince' and begins to learn more about Lord Voldemort's dark past.", 
+            gross: "$301.96M",
+            src: '../img/poster6.jpg'
+        },
+        //7
+        {
+            link: 'https://uakino.club/filmi/genre_adventure/269-garr-potter-ta-smerteln-relkvyi-chastina-persha.html',
+            movieName:"Harry Potter and the Deathly Hallows – Part 1", 
+            year:"2010",
+            Director:"David Yates", 
+            duration:"146 min", 
+            description: "As Harry, Ron, and Hermione race against time and evil to destroy the Horcruxes, they uncover the existence of the three most powerful objects in the wizarding world: the Deathly Hallows.", 
+            gross: "$295.98M",
+            src: '../img/poster7.jpg'
+        },
+         //8
+         {
+            link: 'https://uakino.club/filmi/genre_adventure/68-garr-potter-ta-smerteln-relkvyi-chastina-druga.html',
+            movieName:"Harry Potter and the Deathly Hallows – Part 2", 
+            year:"2011",
+            Director:"David Yates", 
+            duration:"130 min", 
+            description: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.", 
+            gross: "$381.01M",
+            src: '../img/poster8.jpg'
+        }    
+    ]
 
     let allMenu = document.querySelector('.menu');
 
@@ -210,14 +297,14 @@ document.addEventListener('DOMContentLoaded', async () =>{
             case '0': {
                 title.textContent = `${categories[0]} characters`;
                 secondTitle.textContent = '';
-                menuClick(charactersInfo,boxBanner);
+                insertInfo(charactersInfo,boxBanner);
                 arrSort = charactersInfo;
                 break;
             }
             case '1': {
                 title.textContent = categories[1];
                 secondTitle.textContent = '';
-                menuClick(studentsInfo,boxBanner);
+                insertInfo(studentsInfo,boxBanner);
                 arrSort = studentsInfo;
                 break;
             }
@@ -230,7 +317,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                         arr.push(studentsInfo[i]);
                     }
                 }
-                menuClick(arr, boxBanner);
+                insertInfo(arr, boxBanner);
                 arrSort = arr;
                 break;
             }
@@ -243,21 +330,21 @@ document.addEventListener('DOMContentLoaded', async () =>{
                         arr.push(studentsInfo[i]);
                     }
                 }
-                menuClick(arr, boxBanner);
+                insertInfo(arr, boxBanner);
                 arrSort = arr;
                 break;
             }
             case '2': {
                 title.textContent = categories[2];
                 secondTitle.textContent = '';
-                menuClick(staffInfo,boxBanner);
+                insertInfo(staffInfo,boxBanner);
                 arrSort = staffInfo;
                 break;
             } 
             case '3': {
                 title.textContent = categories[3];
                 secondTitle.textContent = '';
-                menuClick(charactersInfo,boxBanner);
+                insertInfo(charactersInfo,boxBanner);
                 arrSort = charactersInfo;
                 break;
             }
@@ -270,7 +357,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                         arr.push(charactersInfo[i]);
                     }
                 }
-                menuClick(arr, boxBanner);
+                insertInfo(arr, boxBanner);
                 arrSort = arr;
                 break;
             }
@@ -283,7 +370,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                         arr.push(charactersInfo[i])
                     }
                 }
-                menuClick(arr, boxBanner);
+                insertInfo(arr, boxBanner);
                 arrSort = arr;
                 break;
             }
@@ -296,7 +383,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                         arr.push(charactersInfo[i])
                     }
                 }
-                menuClick(arr, boxBanner);
+                insertInfo(arr, boxBanner);
                 arrSort = arr;
                 break;
             }
@@ -304,9 +391,6 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 title.textContent = categories[4];
                 secondTitle.textContent = '';
                 document.querySelector('.sort-box').style.display = 'none';
-                if(document.querySelector('.container-persons')){
-                    document.body.removeChild(document.querySelector('.container-persons'));
-                }
                 createGallery(boxBanner);
                 break;
             }
@@ -314,10 +398,11 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 title.textContent = categories[5];
                 secondTitle.textContent = '';
                 document.querySelector('.sort-box').style.display = 'none';
-                if(document.querySelector('.container-persons')){
-                    document.body.removeChild(document.querySelector('.container-persons'));
+                let moviesBox = createContainer('.container-persons', '.container-gallery', 'container-movies');
+                for(let i = 0; i<movies.length; i++){
+                    createMovies(moviesBox, movies[i]);
                 }
-                createGallery(boxBanner);
+                boxBanner.insertAdjacentElement('afterend',moviesBox)
                 break;
             }
         }
@@ -334,7 +419,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 }
                 return 0;
                 });
-                menuClick(arrSort, boxBanner)
+                insertInfo(arrSort, boxBanner)
         })
         btnSort[1].addEventListener('click', function(){
             arrSort.sort(function(a, b){
@@ -347,7 +432,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 }
                 return 0;
                 });
-                menuClick(arrSort, boxBanner)
+                insertInfo(arrSort, boxBanner)
         })
         btnSort[2].addEventListener('click', function(){
             arrSort.sort(function(a, b){
@@ -361,7 +446,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 let dateNewA =new Date(sortDateArr[0]), dateNewB=new Date(sortDateArr[1]);
                 return dateNewA-dateNewB;
                 })
-            menuClick(arrSort, boxBanner) 
+            insertInfo(arrSort, boxBanner) 
         })
         btnSort[3].addEventListener('click', function(){
             arrSort.sort(function(a, b){
@@ -375,7 +460,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
                 let dateNewA =new Date(sortDateArr[0]), dateNewB=new Date(sortDateArr[1]);
                 return dateNewB-dateNewA;
                 })
-            menuClick(arrSort, boxBanner) 
+            insertInfo(arrSort, boxBanner) 
         })
     })
 
@@ -384,14 +469,22 @@ document.addEventListener('DOMContentLoaded', async () =>{
         title.textContent = 'Search';
         title.classList.add('title-affect');
         boxBanner.style.height = '350px';
-        boxBanner.insertAdjacentElement('beforeend', sortBox)
         let arrSearch = [];
         for(let i = 0; i<charactersInfo.length; i++){
             if(charactersInfo[i].name.toLowerCase().includes(valueInput)){
                 arrSearch.push(charactersInfo[i])
             }
         }
-        menuClick(arrSearch, boxBanner);
+        if(arrSearch != []){
+            insertInfo(arrSearch, boxBanner);
+         }
+        if(arrSearch == []){
+            console.log('jf')
+           let notFound = document.createElement('h2')
+           notFound.textContent = `Sorry, but ${search.value} the character is not found`;
+           let container = createContainer('container-gallery', '.container-movies', 'container-persons');
+            container.insertAdjacentElement('beforeend', notFound)
+        }
     })
 
     search.addEventListener('blur', function(){
@@ -402,27 +495,26 @@ document.addEventListener('DOMContentLoaded', async () =>{
     
 })
 
-function createBoxPersons(){
-    if(document.querySelector('.container-gallery')){
-        document.body.removeChild(document.querySelector('.container-gallery'));
+function createContainer(classRemove1, classRemove2, classCreate){
+    if(document.querySelector(classRemove1)){
+        document.body.removeChild(document.querySelector(classRemove1));
     }
-    if(document.querySelector('.container-persons')){
-        document.body.removeChild(document.querySelector('.container-persons'));
+    if(document.querySelector(classRemove2)){
+        document.body.removeChild(document.querySelector(classRemove2));
     }
-    let boxPersons = document.createElement('div');
-    boxPersons.classList.add('container-persons');
-    return boxPersons;
+    if(document.querySelector(`.${classCreate}`)){
+        document.body.removeChild(document.querySelector(`.${classCreate}`));
+    }
+    let container = document.createElement('div');
+    container.classList.add(classCreate);
+    return container;
 }
 
 function createGallery(boxBanner){
-    if(document.querySelector('.container-gallery')){
-        document.body.removeChild(document.querySelector('.container-gallery'));
-    }
     let imgSrc = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg', 'img/6.jpg', 'img/7.jpg', 'img/8.jpg','img/9.jpg', 'img/10.jpg', 'img/11.jpg', 'img/12.jpg']
 
-    let containerGallery = document.createElement('div')
-    containerGallery.classList.add('container-gallery');
-    
+    let containerGallery = createContainer('.container-persons', '.container-movies', 'container-gallery')
+
     let bigImgBox = document.createElement('div');
     bigImgBox.classList.add('big-img');
 
@@ -497,12 +589,12 @@ function createGallery(boxBanner){
 
 }
 
-function menuClick(infoPerson, boxBanner){
-    let boxPersons = createBoxPersons();
+function insertInfo(infoPerson, boxBanner){
+    let container = createContainer('.container-movies', '.container-gallery','container-persons');
     for(let i = 0; i < infoPerson.length; i++){
-        boxPersons.insertAdjacentElement('beforeend', new Info(infoPerson[i]).print())
+        container.insertAdjacentElement('beforeend', new Info(infoPerson[i]).print())
     }
-    boxBanner.insertAdjacentElement('afterend', boxPersons);
+    boxBanner.insertAdjacentElement('afterend', container);
 }
 
 function createSortBox(){
@@ -540,6 +632,36 @@ function createLiInfo(label, value, tag){
     tag.insertAdjacentElement('beforeend', li);
 }
 
+function createMovies(moviesBox, movies){
+    let movieInfo = document.createElement('a');
+    movieInfo.classList.add('block-info')
+    let listInfo = document.createElement('ul');
+    listInfo.classList.add('listInfo');
+    let boxImg = document.createElement('div');
+    boxImg.classList.add('img-box');
+    let imgFilm = document.createElement('img');
+    boxImg.insertAdjacentElement('afterbegin',imgFilm);
+
+    for( let key in movies) {
+        if(key != 'link' && key != 'movieName' && key != 'src'){
+            createLiInfo(key, movies[key], listInfo)
+        }
+        if(key == 'movieName'){
+            createLiInfo('', movies[key], listInfo)
+        }
+        if(key == 'src'){
+            imgFilm.setAttribute('src', movies[key])
+        }
+        if(key == 'link'){
+            movieInfo.setAttribute('href', movies[key])
+            movieInfo.setAttribute('target', '_blank')
+        }
+    }
+    movieInfo.insertAdjacentElement('beforeend', listInfo)
+    movieInfo.insertAdjacentElement('afterbegin', boxImg)
+    moviesBox.insertAdjacentElement('beforeend', movieInfo)
+}
+
 function createFooter(){
     let footerBox = document.createElement('div');
     footerBox.classList.add('footer')
@@ -559,7 +681,6 @@ function createFooter(){
         let icon = document.createElement('i');
         link.setAttribute('href', socialArr[i]);
         icon.setAttribute('class', classIcon[i]);
-
         link.insertAdjacentElement('beforeend', icon);
         socialNetworks.insertAdjacentElement('beforeend', link);
     }
@@ -574,7 +695,6 @@ function dateSplit(a,b){
     let newDateArr2 = b.dateOfBirth.split('-');
     let dateA = [newDateArr1[1], newDateArr1[0], newDateArr1[2]]
     let dateB = [newDateArr2[1], newDateArr2[0], newDateArr2[2]]
-
     let sortDateA = dateA.join('-');
     let sortDateB = dateB.join('-');
     let sortDateArr = [sortDateA, sortDateB]
