@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"152 min", 
             description: "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world", 
             gross: "$317.58M",
-            src: '../img/poster1.jpg'
+            src: 'img/poster1.jpg'
         },
         {
             link: 'https://uakino.club/filmi/genre_adventure/214-garr-potter-tayemna-kmnata.html',
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"161 min", 
             description: "An ancient prophecy seems to be coming true when a mysterious presence begins stalking the corridors of a school of magic and leaving its victims paralyzed.", 
             gross: "$261.99M",
-            src: '../img/poster2.jpg'
+            src: 'img/poster2.jpg'
         },
         {
             link: 'https://uakino.club/filmi/genre_adventure/213-garr-potter-vyazen-azkabanu.html',
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"142 min", 
             description: "Harry Potter, Ron and Hermione return to Hogwarts School of Witchcraft and Wizardry for their third year of study, where they delve into the mystery surrounding an escaped prisoner who poses a dangerous threat to the young wizard.", 
             gross: "$249.36M",
-            src: '../img/poster3.jpg'
+            src: 'img/poster3.jpg'
         },
             {
             link: 'https://uakino.club/filmi/genre_adventure/209-garr-potter-kelih-vognyu.html',
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"157 min", 
             description: "Harry Potter finds himself competing in a hazardous tournament between rival schools of magic, but he is distracted by recurring nightmares.", 
             gross: "$290.01M",
-            src: '../img/poster4.jpg'
+            src: 'img/poster4.jpg'
         },
         {
             link: 'https://uakino.club/filmi/genre_adventure/281-garr-potter-ta-orden-fenksa.html',
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"138 min", 
             description: "With their warning about Lord Voldemort's return scoffed at, Harry and Dumbledore are targeted by the Wizard authorities as an authoritarian bureaucrat slowly seizes power at Hogwarts.", 
             gross: "$292.00M",
-            src: '../img/poster5.jpg'
+            src: 'img/poster5.jpg'
         },
         {
             link: 'https://uakino.club/filmi/genre_adventure/234-garr-potter-napvkrovniy-princ.html',
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"153 min", 
             description: "As Harry Potter begins his sixth year at Hogwarts, he discovers an old book marked as 'the property of the Half-Blood Prince' and begins to learn more about Lord Voldemort's dark past.", 
             gross: "$301.96M",
-            src: '../img/poster6.jpg'
+            src: 'img/poster6.jpg'
         },
         {
             link: 'https://uakino.club/filmi/genre_adventure/269-garr-potter-ta-smerteln-relkvyi-chastina-persha.html',
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"146 min", 
             description: "As Harry, Ron, and Hermione race against time and evil to destroy the Horcruxes, they uncover the existence of the three most powerful objects in the wizarding world: the Deathly Hallows.", 
             gross: "$295.98M",
-            src: '../img/poster7.jpg'
+            src: 'img/poster7.jpg'
         },
          {
             link: 'https://uakino.club/filmi/genre_adventure/68-garr-potter-ta-smerteln-relkvyi-chastina-druga.html',
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             duration:"130 min", 
             description: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.", 
             gross: "$381.01M",
-            src: '../img/poster8.jpg'
+            src: 'img/poster8.jpg'
         }    
     ]
 
