@@ -52,6 +52,9 @@ class Info{
         }
 
         if(wood){
+            if(!core){
+                core = 'unknown'
+            }
             let liWand = document.createElement('li');
             liWand.classList.add('info-wand')
             liWand.innerHTML = `<span>Wand:</span> <div><span>wood: </span>${wood}<br> <span>core: </span>${core}</div>`;
